@@ -1,0 +1,10 @@
+{
+  "name": "As Cartas do Caminho",
+  "short_name": "Cartas do Caminho",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#efe6d1",
+  "theme_color": "#17241f",
+  "lang": "pt-PT",
+  "description": "Dinâmica offline da Subida às Montanhas Sem Nome — Kandersteg 2026."
+}
