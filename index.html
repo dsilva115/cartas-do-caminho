@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt">
+<html lang="pt-PT">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -7,278 +7,130 @@
 <title>As Cartas do Caminho</title>
 <link rel="manifest" href="manifest.webmanifest">
 <style>
-:root {
-  --bg:#efe6d1; --ink:#24251f; --muted:#6e6a5c; --panel:#f8f1df; --line:#c8bda4;
-  --dark:#17241f; --dark2:#26372f; --accent:#8e5f3c;
-}
-* { box-sizing:border-box; }
-html,body { margin:0; min-height:100%; background:var(--bg); color:var(--ink); font-family: Georgia, 'Times New Roman', serif; }
-body {
-  background:
-    radial-gradient(circle at 20% 10%, rgba(255,255,255,.45), transparent 34%),
-    repeating-linear-gradient(0deg, rgba(80,70,50,.025) 0, rgba(80,70,50,.025) 1px, transparent 1px, transparent 4px),
-    var(--bg);
-}
-.app { max-width:760px; margin:auto; min-height:100vh; padding:env(safe-area-inset-top) 16px calc(24px + env(safe-area-inset-bottom)); }
-header { padding:22px 4px 8px; text-align:center; }
-.kicker { letter-spacing:.18em; text-transform:uppercase; font-size:.72rem; color:var(--muted); }
-h1 { margin:.35rem 0 .25rem; font-size:clamp(2rem,9vw,3.4rem); line-height:.95; font-weight:700; }
-.subtitle { color:var(--muted); font-style:italic; }
-.mountains { height:66px; margin:10px 0 12px; position:relative; overflow:hidden; }
-.mountains:before,.mountains:after { content:""; position:absolute; bottom:-24px; width:60%; height:90px; background:var(--dark2); transform:rotate(35deg); border-radius:4px; }
-.mountains:before { left:2%; } .mountains:after { right:1%; transform:rotate(-32deg); background:var(--dark); }
-nav { display:flex; gap:8px; margin:10px 0 16px; }
-nav button { flex:1; border:1px solid var(--line); background:rgba(248,241,223,.8); padding:11px 7px; border-radius:12px; font:inherit; color:var(--ink); }
-nav button.active { background:var(--dark); color:white; border-color:var(--dark); }
-.cardbox { background:rgba(248,241,223,.9); border:1px solid var(--line); border-radius:18px; padding:18px; box-shadow:0 8px 28px rgba(40,35,20,.08); }
-.intro { line-height:1.55; }
-.suits { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; }
-.suitbtn { border:1px solid var(--line); border-radius:16px; padding:18px 10px; background:#fffaf0; text-align:center; font:inherit; min-height:118px; }
-.suitbtn .sym { font-size:2.2rem; display:block; line-height:1; margin-bottom:8px; }
-.suitbtn strong { display:block; font-size:1.06rem; }
-.suitbtn small { color:var(--muted); }
-.values { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:14px; }
-.values button { min-height:58px; border:1px solid var(--line); background:#fffaf0; border-radius:14px; font-size:1.25rem; font-family:inherit; }
-.values button.done { opacity:.35; text-decoration:line-through; }
-.back { border:0; background:none; padding:0; color:var(--muted); font:inherit; margin-bottom:8px; }
-.cardview { text-align:center; }
-.cardhead { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:10px; }
-.bigcard { font-size:2.6rem; font-weight:700; }
-.suitname { text-align:right; color:var(--muted); font-size:.92rem; }
-.cardtitle { font-size:1.55rem; margin:14px 0 12px; }
-.cardtext { font-size:1.26rem; line-height:1.45; margin:16px 0 20px; }
-.mode { border-top:1px solid var(--line); padding-top:16px; text-align:left; display:grid; grid-template-columns:auto 1fr; gap:12px; }
-.modeicon { font-size:1.8rem; }
-.modename { font-weight:700; letter-spacing:.04em; text-transform:uppercase; font-size:.86rem; }
-.modedesc { color:var(--muted); margin-top:4px; line-height:1.35; }
-.actions { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:18px; }
-.actions button,.primary { border:1px solid var(--dark); background:var(--dark); color:white; padding:13px 12px; border-radius:12px; font:inherit; }
-.actions button.secondary { background:transparent; color:var(--dark); }
-.legend { display:grid; gap:10px; margin-top:10px; }
-.legendrow { display:grid; grid-template-columns:38px 1fr; gap:10px; align-items:start; padding:10px 0; border-bottom:1px solid rgba(200,189,164,.7); }
-.legendrow:last-child { border-bottom:0; }
-.legendicon { font-size:1.45rem; text-align:center; }
-.legend strong { display:block; }
-.legend small { color:var(--muted); line-height:1.4; display:block; margin-top:2px; }
-.pills { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0; }
-.pill { border:1px solid var(--line); border-radius:999px; padding:8px 10px; background:#fffaf0; font-size:.9rem; }
-.pill.active { background:var(--dark); color:white; border-color:var(--dark); }
-.history { display:grid; gap:8px; }
-.histitem { display:flex; justify-content:space-between; gap:10px; border-bottom:1px solid var(--line); padding:10px 0; }
-.note { color:var(--muted); font-size:.92rem; line-height:1.4; }
-footer { text-align:center; color:var(--muted); font-size:.78rem; padding:22px 4px 6px; }
-.hidden { display:none!important; }
-@media (max-width:420px) {
-  .app { padding-left:12px; padding-right:12px; }
-  .suits { gap:9px; }
-  .suitbtn { padding:14px 8px; min-height:110px; }
-  .cardbox { padding:15px; }
-}
+:root{--bg:#efe6d1;--ink:#24251f;--muted:#6e6a5c;--panel:#f8f1df;--line:#c8bda4;--dark:#17241f;--dark2:#26372f}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman',serif}
+body{background:radial-gradient(circle at 20% 10%,rgba(255,255,255,.45),transparent 34%),repeating-linear-gradient(0deg,rgba(80,70,50,.025) 0,rgba(80,70,50,.025) 1px,transparent 1px,transparent 4px),var(--bg)}
+.app{max-width:760px;margin:auto;min-height:100vh;padding:env(safe-area-inset-top) 16px calc(24px + env(safe-area-inset-bottom))}
+header{padding:22px 4px 8px;text-align:center}.kicker{letter-spacing:.18em;text-transform:uppercase;font-size:.72rem;color:var(--muted)}
+h1{margin:.35rem 0 .25rem;font-size:clamp(2rem,9vw,3.4rem);line-height:.95}.subtitle{color:var(--muted);font-style:italic}
+.mountains{height:66px;margin:10px 0 12px;position:relative;overflow:hidden}.mountains:before,.mountains:after{content:"";position:absolute;bottom:-24px;width:60%;height:90px;background:var(--dark2);transform:rotate(35deg);border-radius:4px}.mountains:before{left:2%}.mountains:after{right:1%;transform:rotate(-32deg);background:var(--dark)}
+nav{display:flex;gap:8px;margin:10px 0 16px}nav button{flex:1;border:1px solid var(--line);background:rgba(248,241,223,.8);padding:11px 7px;border-radius:12px;font:inherit;color:var(--ink)}nav button.active{background:var(--dark);color:#fff;border-color:var(--dark)}
+.cardbox{background:rgba(248,241,223,.92);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 8px 28px rgba(40,35,20,.08)}.intro{line-height:1.55}
+.suits{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}.suitbtn{border:1px solid var(--line);border-radius:16px;padding:18px 10px;background:#fffaf0;text-align:center;font:inherit;min-height:118px}.suitbtn .sym{font-size:2.2rem;display:block;line-height:1;margin-bottom:8px}.suitbtn strong{display:block;font-size:1.06rem}.suitbtn small{color:var(--muted)}
+.values{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.values button{min-height:58px;border:1px solid var(--line);background:#fffaf0;border-radius:14px;font-size:1.25rem;font-family:inherit}.values button.done{opacity:.35;text-decoration:line-through}
+.back{border:0;background:none;padding:0;color:var(--muted);font:inherit;margin-bottom:8px}.cardview{text-align:center}.cardhead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}
+.bigcard{font-size:2.6rem;font-weight:700}.suitname{text-align:right;color:var(--muted);font-size:.92rem}.cardtitle{font-size:1.55rem;margin:14px 0 12px}.cardtext{font-size:1.26rem;line-height:1.45;margin:16px 0 20px}
+.mode{border-top:1px solid var(--line);padding-top:16px;text-align:left;display:grid;grid-template-columns:auto 1fr;gap:12px}.modeicon{font-size:1.8rem}.modename{font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.86rem}.modedesc{color:var(--muted);margin-top:4px;line-height:1.35}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.actions button,.primary{border:1px solid var(--dark);background:var(--dark);color:white;padding:13px 12px;border-radius:12px;font:inherit}.actions button.secondary{background:transparent;color:var(--dark)}
+.legend{display:grid;gap:10px;margin-top:10px}.legendrow{display:grid;grid-template-columns:38px 1fr;gap:10px;align-items:start;padding:10px 0;border-bottom:1px solid rgba(200,189,164,.7)}.legendrow:last-child{border-bottom:0}.legendicon{font-size:1.45rem;text-align:center}.legend strong{display:block}.legend small{color:var(--muted);line-height:1.4;display:block;margin-top:2px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.pill{border:1px solid var(--line);border-radius:999px;padding:8px 10px;background:#fffaf0;font-size:.9rem;font-family:inherit}.pill.active{background:var(--dark);color:#fff;border-color:var(--dark)}
+.history{display:grid;gap:8px}.histitem{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding:10px 0}.note{color:var(--muted);font-size:.92rem;line-height:1.4}
+.stage-note{font-size:.85rem;color:var(--muted);margin-top:4px}footer{text-align:center;color:var(--muted);font-size:.78rem;padding:22px 4px 6px}.hidden{display:none!important}
+@media(max-width:420px){.app{padding-left:12px;padding-right:12px}.suits{gap:9px}.suitbtn{padding:14px 8px;min-height:110px}.cardbox{padding:15px}}
 </style>
 </head>
 <body>
 <div class="app">
 <header>
-  <div class="kicker">Kandersteg · 20 de agosto de 2026</div>
-  <h1>As Cartas<br>do Caminho</h1>
-  <div class="subtitle">O Caminho que não se encontra nos mapas</div>
-  <div class="mountains"></div>
+<div class="kicker">Kandersteg · 20 de agosto de 2026</div>
+<h1>As Cartas<br>do Caminho</h1>
+<div class="subtitle">O Caminho que não se encontra nos mapas</div>
+<div class="mountains"></div>
 </header>
-
-<nav>
-  <button id="tabCards" class="active">Cartas</button>
-  <button id="tabLegend">Símbolos</button>
-  <button id="tabHistory">Histórico</button>
-</nav>
-
+<nav><button id="tabCards" class="active">Cartas</button><button id="tabLegend">Símbolos</button><button id="tabHistory">Histórico</button></nav>
 <main>
 <section id="screenCards" class="cardbox">
-  <div id="home">
-    <div class="intro">
-      <strong>Que carta revelou o Caminho?</strong><br>
-      Escolhe o naipe e depois o valor. Os Ases não aparecem aqui: pertencem à reflexão da noite.
-    </div>
-    <div class="pills" id="stagePills"></div>
-    <div class="suits" id="suitButtons"></div>
-    <div style="margin-top:14px">
-      <button class="primary" id="randomBtn" style="width:100%">O Caminho escolhe</button>
-    </div>
-  </div>
-
-  <div id="valueScreen" class="hidden">
-    <button class="back" id="backHome">← Voltar aos naipes</button>
-    <div id="selectedSuitTitle"></div>
-    <div class="values" id="valueButtons"></div>
-  </div>
-
-  <div id="cardScreen" class="hidden cardview">
-    <button class="back" id="backValues">← Voltar</button>
-    <div class="cardhead">
-      <div class="bigcard" id="bigCard"></div>
-      <div class="suitname" id="suitName"></div>
-    </div>
-    <div class="cardtitle" id="cardTitle"></div>
-    <div class="cardtext" id="cardText"></div>
-    <div class="mode">
-      <div class="modeicon" id="modeIcon"></div>
-      <div>
-        <div class="modename" id="modeName"></div>
-        <div class="modedesc" id="modeDesc"></div>
-      </div>
-    </div>
-    <div class="actions">
-      <button class="secondary" id="toggleDone">Marcar como feita</button>
-      <button id="nextRandom">Outra carta</button>
-    </div>
-  </div>
+<div id="home">
+<div class="intro"><strong>Que carta revelou o Caminho?</strong><br>Escolhe o naipe e depois o valor. Os quatro Ases não aparecem aqui: pertencem à reflexão da noite.</div>
+<div class="pills" id="stagePills"></div>
+<div id="stageNote" class="stage-note"></div>
+<div class="suits" id="suitButtons"></div>
+<div style="margin-top:14px"><button class="primary" id="randomBtn" style="width:100%">O Caminho escolhe</button></div>
+</div>
+<div id="valueScreen" class="hidden"><button class="back" id="backHome">← Voltar aos naipes</button><div id="selectedSuitTitle"></div><div class="values" id="valueButtons"></div></div>
+<div id="cardScreen" class="hidden cardview">
+<button class="back" id="backValues">← Voltar</button>
+<div class="cardhead"><div class="bigcard" id="bigCard"></div><div class="suitname" id="suitName"></div></div>
+<div class="cardtitle" id="cardTitle"></div><div class="cardtext" id="cardText"></div>
+<div class="mode"><div class="modeicon" id="modeIcon"></div><div><div class="modename" id="modeName"></div><div class="modedesc" id="modeDesc"></div></div></div>
+<div class="actions"><button class="secondary" id="toggleDone">Marcar como feita</button><button id="nextRandom">Outra carta</button></div>
+</div>
 </section>
-
 <section id="screenLegend" class="cardbox hidden">
-  <h2 style="margin-top:0">Como se percorre uma carta</h2>
-  <p class="note">Quem tira a carta é apenas o primeiro a encontrá-la. O símbolo indica como o Caminho envolve os restantes.</p>
-  <div class="legend" id="legend"></div>
-  <p class="note" style="margin-top:16px"><strong>Passar não é ficar para trás.</strong> Qualquer pessoa pode escolher não responder, sem justificar e sem insistência do grupo.</p>
+<h2 style="margin-top:0">Como se percorre uma carta</h2>
+<p class="note">Quem tira a carta é apenas o primeiro a encontrá-la. O símbolo indica como o Caminho envolve os restantes.</p>
+<div class="legend" id="legend"></div>
+<p class="note" style="margin-top:16px"><strong>Passar não é ficar para trás.</strong> Qualquer pessoa pode escolher não responder, sem justificar e sem insistência do grupo.</p>
+<p class="note"><strong>Os Ases ficam de fora.</strong> Durante a subida não se explica porquê. Só aparecem à noite, em <em>Onde o Mapa Acaba</em>.</p>
 </section>
-
 <section id="screenHistory" class="cardbox hidden">
-  <h2 style="margin-top:0">Cartas encontradas</h2>
-  <div class="pills">
-    <button class="pill active" id="histAll">Todas</button>
-    <button class="pill" id="histDone">Feitas</button>
-  </div>
-  <div class="history" id="history"></div>
-  <button class="primary" id="resetBtn" style="width:100%;margin-top:18px">Limpar histórico</button>
+<h2 style="margin-top:0">Cartas encontradas</h2>
+<div class="pills"><button class="pill active" id="histAll">Todas</button><button class="pill" id="histDone">Feitas</button></div>
+<div class="history" id="history"></div>
+<button class="primary" id="resetBtn" style="width:100%;margin-top:18px">Limpar histórico</button>
 </section>
 </main>
-
 <footer>Quanto mais alto chegamos, menos importa aquilo que trazemos às costas e mais difícil se torna esconder aquilo que transportamos dentro de nós.</footer>
 </div>
-
 <script>
-const CARDS = [{"suit": "hearts", "value": "2", "title": "O abraço do Caminho", "mode": "pair", "text": "Escolhe alguém e dá-lhe um abraço. Só depois explica porquê."}, {"suit": "hearts", "value": "3", "title": "Três coincidências", "mode": "pair", "text": "Escolhe alguém com quem normalmente não conversas tanto. Têm 30 segundos para descobrir 3 coisas que têm em comum fora do Escutismo."}, {"suit": "hearts", "value": "4", "title": "Quem é quem?", "mode": "group", "text": "Imita alguém do grupo até os restantes descobrirem quem é. Depois passa a vez a essa pessoa."}, {"suit": "hearts", "value": "5", "title": "Primeiras impressões", "mode": "pair", "text": "Escolhe alguém. O que pensaste dessa pessoa quando a conheceste? E o que pensas hoje?"}, {"suit": "hearts", "value": "6", "title": "A gargalhada", "mode": "open", "text": "Quem é a pessoa deste grupo que mais facilmente te faz rir? Conta um momento."}, {"suit": "hearts", "value": "7", "title": "Um obrigado por dizer", "mode": "pair", "text": "Escolhe alguém presente e agradece-lhe por alguma coisa que essa pessoa provavelmente nem sabe que fez por ti."}, {"suit": "hearts", "value": "8", "title": "Uma descoberta inesperada", "mode": "open", "text": "Quem neste grupo descobriste ser uma pessoa diferente daquela que inicialmente imaginavas?"}, {"suit": "hearts", "value": "9", "title": "Quem me conhece?", "mode": "pair", "text": "Quem deste grupo achas que te conhece melhor? Essa pessoa pode dizer se concorda — e porquê."}, {"suit": "hearts", "value": "10", "title": "Quem fez falta", "mode": "mist", "text": "Há alguém que fez parte do teu percurso escutista e que gostarias que estivesse hoje aqui a subir esta montanha?"}, {"suit": "hearts", "value": "V", "title": "O que nunca disse", "mode": "pair", "text": "Diz a alguém presente algo positivo que pensas sobre essa pessoa mas que provavelmente nunca lhe disseste."}, {"suit": "hearts", "value": "D", "title": "A pessoa que o Escutismo me deu", "mode": "mist", "text": "Qual foi uma das melhores pessoas que descobriste graças ao Escutismo? O que mudou em ti por a teres conhecido?"}, {"suit": "hearts", "value": "R", "title": "Quando preciso de alguém", "mode": "mist", "text": "Num momento realmente difícil, que qualidade precisas de encontrar em quem caminha ao teu lado? Há alguém que já te tenha mostrado essa qualidade?"}, {"suit": "diamonds", "value": "2", "title": "A mochila impossível", "mode": "group", "text": "Se pudesses ter qualquer objeto do mundo dentro da mochila neste momento, o que seria? Resposta rápida de todos."}, {"suit": "diamonds", "value": "3", "title": "Museu do Clã", "mode": "group", "text": "Se tivéssemos de guardar um único objeto para representar a história deste Clã daqui a 50 anos, o que escolheríamos? Tentem chegar a uma decisão."}, {"suit": "diamonds", "value": "4", "title": "A história absurda", "mode": "open", "text": "Conta o episódio mais absurdo ou divertido que já viveste numa atividade escutista."}, {"suit": "diamonds", "value": "5", "title": "A fotografia", "mode": "open", "text": "Se pudesses recuperar uma única fotografia de toda a tua vida escutista, de que momento seria?"}, {"suit": "diamonds", "value": "6", "title": "Outra vez!", "mode": "group", "text": "Qual atividade escutista repetias amanhã exatamente como aconteceu? Uma resposta rápida por pessoa."}, {"suit": "diamonds", "value": "7", "title": "É por isto", "mode": "open", "text": "Qual foi o momento em que pensaste: “é por coisas destas que sou escuteiro”?"}, {"suit": "diamonds", "value": "8", "title": "Aprendi sem perceber", "mode": "open", "text": "Que coisa sabes fazer hoje graças ao Escutismo que provavelmente nunca terias aprendido de outra forma?"}, {"suit": "diamonds", "value": "9", "title": "Antes e depois", "mode": "open", "text": "Em que aspeto és uma pessoa diferente daquela que serias se nunca tivesses entrado para o Escutismo?"}, {"suit": "diamonds", "value": "10", "title": "A memória que fica", "mode": "mist", "text": "Se daqui a 30 anos só te lembrares de uma atividade ou momento escutista, qual esperas que seja?"}, {"suit": "diamonds", "value": "V", "title": "O que recebi", "mode": "mist", "text": "Qual foi a maior coisa que alguém do Escutismo te ensinou sem alguma vez te ter sentado para ta ensinar?"}, {"suit": "diamonds", "value": "D", "title": "Aquilo que não cabe na mochila", "mode": "mist", "text": "Qual é a coisa mais importante que o Escutismo já te deu e que não conseguirias explicar facilmente a alguém que nunca foi escuteiro?"}, {"suit": "diamonds", "value": "R", "title": "O que já levo daqui", "mode": "mist", "text": "Ainda estamos no início desta aventura. O que já levas contigo de todo o caminho que fizemos para chegar a Kandersteg?"}, {"suit": "clubs", "value": "2", "title": "Pequenas tragédias", "mode": "group", "text": "Qual foi a coisa mais inútil que já levaste na mochila para uma atividade? Respostas rápidas."}, {"suit": "clubs", "value": "3", "title": "Sobrevivi", "mode": "open", "text": "Conta uma situação escutista que na altura foi terrível mas hoje te faz rir."}, {"suit": "clubs", "value": "4", "title": "Partilha o peso", "mode": "carry", "text": "Escolhe um objeto não essencial da tua mochila. Durante os próximos 10 minutos outra pessoa terá de o transportar. O grupo decide quem."}, {"suit": "clubs", "value": "5", "title": "O meu ponto fraco", "mode": "group", "text": "O que te põe mais facilmente de mau humor numa atividade: fome, sono, frio, calor, andar, esperar, pessoas…? Uma resposta por pessoa."}, {"suit": "clubs", "value": "6", "title": "Eu estava errado", "mode": "open", "text": "Conta uma situação no Escutismo em que tiveste de admitir que estavas errado."}, {"suit": "clubs", "value": "7", "title": "Queria estar em casa", "mode": "open", "text": "Qual foi a atividade em que mais desejaste estar em casa? O que estava a tornar aquele momento tão difícil?"}, {"suit": "clubs", "value": "8", "title": "Falhei", "mode": "open", "text": "Conta um erro teu numa atividade que acabou por afetar outras pessoas. O que aprendeste?"}, {"suit": "clubs", "value": "9", "title": "O preço do Caminho", "mode": "mist", "text": "O que já deixaste de fazer porque tinhas Escuteiros? Houve alguma vez em que te custou realmente fazer essa escolha?"}, {"suit": "clubs", "value": "10", "title": "A queda", "mode": "mist", "text": "Qual consideras ter sido o teu maior erro no teu percurso escutista?"}, {"suit": "clubs", "value": "V", "title": "Quase fiquei para trás", "mode": "mist", "text": "Já houve um momento em que sentiste que não pertencias a este grupo ou ao Escutismo?"}, {"suit": "clubs", "value": "D", "title": "Quase desisti", "mode": "mist", "text": "Qual foi o momento em que estiveste mais perto de desistir do Escutismo? Porque continuaste?"}, {"suit": "clubs", "value": "R", "title": "A marca que ficou", "mode": "mist", "text": "Há alguma mágoa, desilusão ou conflito que o Escutismo te deixou e que ainda transportas contigo?"}, {"suit": "spades", "value": "2", "title": "Guia sem mapa", "mode": "open", "text": "Tens 30 segundos para convencer o grupo de que, se todos os mapas desaparecerem, tu és a pessoa que deve liderar a expedição."}, {"suit": "spades", "value": "3", "title": "A Lei impossível", "mode": "group", "text": "Se pudesses acrescentar um artigo completamente absurdo à Lei do Escuta, qual seria? Todos podem propor um."}, {"suit": "spades", "value": "4", "title": "Por um dia", "mode": "open", "text": "Podes mudar uma coisa no Clã sem ninguém poder contestar. O que mudas?"}, {"suit": "spades", "value": "5", "title": "Escolhe o caminho", "mode": "group", "text": "Mar, montanha, floresta ou cidade? Cada pessoa escolhe uma opção. Cada grupo tem 30 segundos para defender porque o seu caminho é superior."}, {"suit": "spades", "value": "6", "title": "O meu lema", "mode": "open", "text": "Se tivesses de escolher uma frase para te guiar na vida, qual seria?"}, {"suit": "spades", "value": "7", "title": "Lado a lado", "mode": "pairwalk", "text": "Escolhe alguém com quem normalmente não caminharias. Nos próximos 10 minutos caminhem juntos e descubram uma coisa que ainda não sabiam um sobre o outro."}, {"suit": "spades", "value": "8", "title": "Quando ninguém está a ver", "mode": "open", "text": "Que valor do Escutismo achas mais difícil viver no teu dia a dia?"}, {"suit": "spades", "value": "9", "title": "Escolher diferente", "mode": "open", "text": "Há alguma decisão importante da tua vida em que achas que o Escutismo influenciou a tua escolha?"}, {"suit": "spades", "value": "10", "title": "Servir", "mode": "mist", "text": "Qual foi uma vez em que fizeste alguma coisa genuinamente por outra pessoa sem receber nada em troca e percebeste que valeu a pena?"}, {"suit": "spades", "value": "V", "title": "O exemplo", "mode": "mist", "text": "Que pessoa do teu percurso escutista te mostrou, pelas ações e não pelas palavras, o tipo de pessoa que gostarias de ser?"}, {"suit": "spades", "value": "D", "title": "Duas versões de mim", "mode": "mist", "text": "Que valor defendes enquanto Escuteiro mas tens dificuldade em cumprir quando tiras o lenço?"}, {"suit": "spades", "value": "R", "title": "Sem mapa", "mode": "mist", "text": "Quando não há uma resposta evidente e és tu que tens de escolher o próximo passo, em que princípios procuras apoiar a tua decisão?"}];
-const SUITS = {"hearts": {"symbol": "♥", "name": "Os Laços", "subtitle": "Quem caminha comigo"}, "diamonds": {"symbol": "♦", "name": "A Bagagem", "subtitle": "Aquilo que levo"}, "clubs": {"symbol": "♣", "name": "As Marcas", "subtitle": "Aquilo que me custou"}, "spades": {"symbol": "♠", "name": "A Bússola", "subtitle": "Aquilo que me guia"}};
-const MODES = {"open": {"icon": "👣", "name": "Abre o Caminho", "desc": "Quem tirou responde ou cumpre primeiro. Depois, quem quiser pode partilhar."}, "group": {"icon": "🔥", "name": "À volta do Fogo", "desc": "Todos participam. Mantém as respostas curtas para o Caminho continuar."}, "pair": {"icon": "🤝", "name": "Lado a Lado", "desc": "Quem tirou escolhe outra pessoa. A carta é feita ou respondida pelos dois."}, "carry": {"icon": "🎒", "name": "Partilha o Peso", "desc": "O desafio envolve a ajuda ou a decisão do grupo e continua durante o Caminho."}, "pairwalk": {"icon": "🤝", "name": "Lado a Lado · Em Caminho", "desc": "A carta continua durante os próximos minutos de caminhada."}, "mist": {"icon": "🌫️", "name": "No Nevoeiro", "desc": "Partilha mais profunda. Quem tirou pode responder; depois fala apenas quem quiser. Sem rondas nem nomear ninguém."}};
-const VALUES = ["2","3","4","5","6","7","8","9","10","V","D","R"];
-const STAGES = {
-  "leve": ["2","3","4","5"],
-  "meio": ["2","3","4","5","6","7","8"],
-  "alto": VALUES
+const CARDS=[{"suit": "hearts", "value": "2", "title": "Abraço às cegas", "mode": "pair", "text": "Fecha os olhos e aponta para alguém. Essa pessoa recebe um abraço. Tens de lhe dizer uma razão verdadeira para teres gostado de caminhar com ela até aqui."}, {"suit": "hearts", "value": "3", "title": "3 em comum", "mode": "pair", "text": "Escolhe alguém com quem normalmente não conversas tanto. Têm 1 minuto para descobrir 3 coisas que têm em comum fora do Escutismo."}, {"suit": "hearts", "value": "4", "title": "Quem é?", "mode": "group", "text": "Imita alguém do grupo, sem falar, até descobrirem quem é. A pessoa descoberta continua com outra imitação. Fazer 3 rondas."}, {"suit": "hearts", "value": "5", "title": "Quem seria capaz de…?", "mode": "group", "text": "Quem tirou inventa um “Quem deste grupo seria mais capaz de…?”. Ao 3, todos apontam simultaneamente para alguém. Fazer 3 rondas."}, {"suit": "hearts", "value": "6", "title": "Muda o passo", "mode": "carry", "text": "Durante os próximos 10 minutos, caminha com alguém com quem ainda não tenhas caminhado hoje."}, {"suit": "hearts", "value": "7", "title": "Primeiras impressões", "mode": "pair", "text": "Escolhe alguém. Diz o que pensaste dessa pessoa quando a conheceste. Ela faz o mesmo sobre ti. Depois: o que mudou?"}, {"suit": "hearts", "value": "8", "title": "Uma qualidade", "mode": "group", "text": "Cada pessoa escolhe quem está à sua direita e diz uma qualidade que reconhece nela. Sem repetir qualidades já ditas."}, {"suit": "hearts", "value": "9", "title": "Uma descoberta inesperada", "mode": "open", "text": "Quem neste grupo descobriste ser uma pessoa diferente daquela que inicialmente imaginavas?"}, {"suit": "hearts", "value": "10", "title": "Quem fez falta", "mode": "mist", "text": "Há alguém que fez parte do teu percurso escutista e que gostarias que estivesse hoje aqui? Porquê?"}, {"suit": "hearts", "value": "V", "title": "O que nunca disse", "mode": "pair", "text": "Escolhe alguém presente e diz-lhe algo positivo que pensas sobre essa pessoa mas que provavelmente nunca lhe disseste."}, {"suit": "hearts", "value": "D", "title": "A pessoa que o Escutismo me deu", "mode": "mist", "text": "Qual foi uma das melhores pessoas que descobriste graças ao Escutismo? O que mudou em ti por a teres conhecido?"}, {"suit": "hearts", "value": "R", "title": "Quem me conhece verdadeiramente?", "mode": "mist", "text": "Quem deste grupo achas que conhece melhor a pessoa que és, para lá daquilo que mostras? Porquê?"}, {"suit": "diamonds", "value": "2", "title": "Mochila mágica", "mode": "group", "text": "Cada um tem 5 segundos: se pudesses fazer aparecer uma coisa na tua mochila agora, o que seria?"}, {"suit": "diamonds", "value": "3", "title": "Museu do Clã", "mode": "carry", "text": "Têm 2 minutos para decidir um único objeto que deveria ser colocado num museu para contar a história do Clã daqui a 100 anos. Tem de haver consenso."}, {"suit": "diamonds", "value": "4", "title": "História em 3 palavras", "mode": "group", "text": "Cada pessoa descreve uma atividade escutista usando apenas 3 palavras. Os outros tentam descobrir qual foi."}, {"suit": "diamonds", "value": "5", "title": "Eu nunca — versão escutista", "mode": "group", "text": "Quem tirou diz “Eu nunca…” relacionado com Escutismo. Quem já fez dá um passo em frente. Fazer 5 rondas."}, {"suit": "diamonds", "value": "6", "title": "A fotografia", "mode": "open", "text": "Se pudesses recuperar uma única fotografia de toda a tua vida escutista, que momento mostraria?"}, {"suit": "diamonds", "value": "7", "title": "Outra vez!", "mode": "group", "text": "Cada pessoa diz uma atividade que repetiria amanhã. Se alguém escolher a mesma, junta-se fisicamente a essa pessoa."}, {"suit": "diamonds", "value": "8", "title": "Aprendi sem perceber", "mode": "open", "text": "Que coisa sabes fazer hoje graças ao Escutismo que provavelmente nunca terias aprendido de outra forma?"}, {"suit": "diamonds", "value": "9", "title": "Antes e depois", "mode": "open", "text": "Em que aspeto és diferente da pessoa que achas que serias se nunca tivesses entrado para o Escutismo?"}, {"suit": "diamonds", "value": "10", "title": "A memória que fica", "mode": "mist", "text": "Se daqui a 30 anos só te lembrares de um momento escutista, qual gostarias que fosse?"}, {"suit": "diamonds", "value": "V", "title": "O que recebi", "mode": "mist", "text": "Qual foi a coisa mais importante que alguém do Escutismo te ensinou sem alguma vez te ter tentado ensinar?"}, {"suit": "diamonds", "value": "D", "title": "Aquilo que não cabe na mochila", "mode": "mist", "text": "O que é que o Escutismo te deu que seria difícil explicar a alguém que nunca viveu isto?"}, {"suit": "diamonds", "value": "R", "title": "O que já levo daqui", "mode": "mist", "text": "Depois de mais de dois anos a construir este sonho, o que já levas de Kandersteg que não vai voltar contigo dentro da mochila?"}, {"suit": "clubs", "value": "2", "title": "O inútil", "mode": "group", "text": "Cada um mostra ou diz a coisa mais inútil que trouxe para Kandersteg. O grupo elege o vencedor."}, {"suit": "clubs", "value": "3", "title": "Drama de Caminheiro", "mode": "group", "text": "Tens 30 segundos para representar de forma exageradíssima o pior momento que pode acontecer num hike."}, {"suit": "clubs", "value": "4", "title": "Partilha o peso", "mode": "carry", "text": "Escolhe algo da tua mochila. Outra pessoa transporta-o durante os próximos 10 minutos. Não podes escolher quem."}, {"suit": "clubs", "value": "5", "title": "O que me transforma num monstro", "mode": "group", "text": "Fome, sono, frio, calor, chuva, esperar, caminhar… Cada um escolhe o seu. O grupo decide quem é o pior quando está nesse estado."}, {"suit": "clubs", "value": "6", "title": "Sem reclamar", "mode": "carry", "text": "Durante os próximos 10 minutos, ninguém pode reclamar de nada. Quem for apanhado a reclamar carrega temporariamente algo de outro elemento."}, {"suit": "clubs", "value": "7", "title": "Sobrevivi", "mode": "open", "text": "Conta uma situação escutista que na altura foi péssima e hoje te faz rir."}, {"suit": "clubs", "value": "8", "title": "Eu estava errado", "mode": "open", "text": "Conta uma situação no Escutismo em que tiveste de admitir que estavas errado."}, {"suit": "clubs", "value": "9", "title": "O preço do Caminho", "mode": "mist", "text": "O que já deixaste de viver porque escolheste estar nos Escuteiros? Houve alguma vez em que essa escolha te custou realmente?"}, {"suit": "clubs", "value": "10", "title": "A queda", "mode": "mist", "text": "Qual consideras ter sido o maior erro que cometeste no teu percurso escutista?"}, {"suit": "clubs", "value": "V", "title": "Quase fiquei para trás", "mode": "mist", "text": "Já houve um momento em que sentiste que não pertencías a este grupo ou ao Escutismo?"}, {"suit": "clubs", "value": "D", "title": "Quase desisti", "mode": "mist", "text": "Qual foi o momento em que estiveste mais perto de desistir? O que ou quem te fez ficar?"}, {"suit": "clubs", "value": "R", "title": "A marca que ficou", "mode": "mist", "text": "Há alguma mágoa, desilusão ou conflito que o Escutismo te deixou e que ainda transportas contigo?"}, {"suit": "spades", "value": "2", "title": "O guia", "mode": "open", "text": "Tens 30 segundos para convencer todos de que, se ficássemos perdidos agora, tu deverias liderar o grupo."}, {"suit": "spades", "value": "3", "title": "11.º artigo", "mode": "group", "text": "Cada pessoa inventa um novo artigo, completamente absurdo, para a Lei do Escuta. O grupo elege o melhor."}, {"suit": "spades", "value": "4", "title": "O Caminho escolhe o guia", "mode": "carry", "text": "O grupo escolhe alguém que não esteja normalmente à frente. Essa pessoa lidera o grupo durante os próximos 10 minutos."}, {"suit": "spades", "value": "5", "title": "Escolhe o teu caminho", "mode": "group", "text": "Mar, montanha, floresta ou cidade. Dividam-se fisicamente e cada grupo tem 30 segundos para defender a sua escolha."}, {"suit": "spades", "value": "6", "title": "Sem palavras", "mode": "carry", "text": "Durante 5 minutos, o grupo tenta continuar a caminhada sem falar. Observem como comunicam e quem naturalmente orienta os outros."}, {"suit": "spades", "value": "7", "title": "Caminho desconhecido", "mode": "pairwalk", "text": "Escolhe alguém com quem normalmente não caminharias. Caminhem juntos 10 minutos e descobre uma coisa sobre essa pessoa que ainda não sabias."}, {"suit": "spades", "value": "8", "title": "Concordo / Discordo", "mode": "group", "text": "“Ser Escuteiro torna-nos necessariamente melhores pessoas.” Cada um posiciona-se fisicamente entre “concordo” e “discordo”. Dois ou três explicam a sua posição."}, {"suit": "spades", "value": "9", "title": "Escolher diferente", "mode": "open", "text": "Há alguma decisão importante da tua vida em que o Escutismo tenha influenciado a tua escolha?"}, {"suit": "spades", "value": "10", "title": "Quando ninguém está a ver", "mode": "mist", "text": "Qual é o valor do Escutismo que tens mais dificuldade em viver quando ninguém está a ver?"}, {"suit": "spades", "value": "V", "title": "O exemplo", "mode": "mist", "text": "Quem te mostrou, pelas ações e não pelas palavras, o tipo de pessoa que gostarias de ser?"}, {"suit": "spades", "value": "D", "title": "Duas versões de mim", "mode": "mist", "text": "Que princípio defendes no Escutismo mas as tuas escolhas fora dele nem sempre demonstram?"}, {"suit": "spades", "value": "R", "title": "O que fica sem o lenço", "mode": "mist", "text": "Se tivesses de retirar o lenço hoje, que parte do Caminheiro que és teria obrigatoriamente de continuar contigo?"}];
+const SUITS={"hearts": {"symbol": "♥", "name": "Os Laços", "subtitle": "Quem caminha comigo"}, "diamonds": {"symbol": "♦", "name": "A Bagagem", "subtitle": "Aquilo que levo"}, "clubs": {"symbol": "♣", "name": "As Marcas", "subtitle": "Aquilo que me custou"}, "spades": {"symbol": "♠", "name": "A Bússola", "subtitle": "Aquilo que me guia"}};
+const MODES={"open": {"icon": "👣", "name": "Abre o Caminho", "desc": "Quem tirou começa. Depois, quem quiser pode partilhar."}, "group": {"icon": "🔥", "name": "À volta do Fogo", "desc": "Todos participam. Mantém o ritmo para o Caminho continuar."}, "pair": {"icon": "🤝", "name": "Lado a Lado", "desc": "Quem tirou escolhe outra pessoa. A carta é feita ou respondida pelos dois."}, "pairwalk": {"icon": "🤝", "name": "Lado a Lado · Em Caminho", "desc": "A carta continua durante os próximos minutos de caminhada."}, "carry": {"icon": "🎒", "name": "Partilha o Peso", "desc": "Missão ou desafio coletivo que pode continuar durante o Caminho."}, "mist": {"icon": "🌫️", "name": "No Nevoeiro", "desc": "Partilha mais pessoal. Quem tirou pode responder; depois fala apenas quem quiser. Sem rondas nem nomear ninguém."}};
+const VALUES=["2","3","4","5","6","7","8","9","10","V","D","R"];
+const STAGES={
+  "inicio":{"values":["2","3","4","5"],"label":"Início · 2–5","note":"Jogos, movimento, gargalhadas e interação."},
+  "subida":{"values":["2","3","4","5","6","7","8"],"label":"A subir · 2–8","note":"Interação, histórias e primeiras reflexões."},
+  "montanha":{"values":["6","7","8","9","10"],"label":"Montanha · 6–10","note":"A montanha já pesa; as cartas também pedem mais."},
+  "alto":{"values":["9","10","V","D","R"],"label":"Mais alto · 9–R","note":"Perguntas pessoais e partilhas mais profundas."}
 };
-let currentStage = localStorage.getItem("cdc_stage") || "alto";
-let selectedSuit = null;
-let currentCard = null;
-let done = new Set(JSON.parse(localStorage.getItem("cdc_done") || "[]"));
-let seen = JSON.parse(localStorage.getItem("cdc_seen") || "[]");
-
-function save() {
-  localStorage.setItem("cdc_done", JSON.stringify([...done]));
-  localStorage.setItem("cdc_seen", JSON.stringify(seen));
-  localStorage.setItem("cdc_stage", currentStage);
+let currentStage=localStorage.getItem("cdc_stage_v2")||"inicio";
+let selectedSuit=null,currentCard=null;
+let done=new Set(JSON.parse(localStorage.getItem("cdc_done_v2")||"[]"));
+let seen=JSON.parse(localStorage.getItem("cdc_seen_v2")||"[]");
+function save(){localStorage.setItem("cdc_done_v2",JSON.stringify([...done]));localStorage.setItem("cdc_seen_v2",JSON.stringify(seen));localStorage.setItem("cdc_stage_v2",currentStage)}
+function key(c){return c.suit+"-"+c.value}
+function availableCards(){return CARDS.filter(c=>STAGES[currentStage].values.includes(c.value))}
+function show(id){["home","valueScreen","cardScreen"].forEach(x=>document.getElementById(x).classList.add("hidden"));document.getElementById(id).classList.remove("hidden")}
+function renderStages(){
+ const el=document.getElementById("stagePills");el.innerHTML="";
+ Object.entries(STAGES).forEach(([s,o])=>{const b=document.createElement("button");b.className="pill"+(currentStage===s?" active":"");b.textContent=o.label;b.onclick=()=>{currentStage=s;save();renderStages();if(selectedSuit)renderValues()};el.appendChild(b)});
+ document.getElementById("stageNote").textContent=STAGES[currentStage].note;
 }
-function key(c) { return c.suit+"-"+c.value; }
-function availableCards() {
-  return CARDS.filter(c => STAGES[currentStage].includes(c.value));
+function renderSuits(){
+ const el=document.getElementById("suitButtons");el.innerHTML="";
+ Object.entries(SUITS).forEach(([id,s])=>{const b=document.createElement("button");b.className="suitbtn";b.innerHTML=`<span class="sym">${s.symbol}</span><strong>${s.name}</strong><small>${s.subtitle}</small>`;b.onclick=()=>{selectedSuit=id;renderValues();show("valueScreen")};el.appendChild(b)});
 }
-function show(id) {
-  ["home","valueScreen","cardScreen"].forEach(x=>document.getElementById(x).classList.add("hidden"));
-  document.getElementById(id).classList.remove("hidden");
+function renderValues(){
+ const s=SUITS[selectedSuit];document.getElementById("selectedSuitTitle").innerHTML=`<h2 style="margin:.25rem 0">${s.symbol} ${s.name}</h2><div class="note">${s.subtitle}</div>`;
+ const el=document.getElementById("valueButtons");el.innerHTML="";
+ STAGES[currentStage].values.forEach(v=>{const c=CARDS.find(x=>x.suit===selectedSuit&&x.value===v);if(!c)return;const b=document.createElement("button");b.textContent=v+(done.has(key(c))?" ✓":"");if(done.has(key(c)))b.classList.add("done");b.onclick=()=>openCard(c);el.appendChild(b)});
 }
-function renderStages() {
-  const el=document.getElementById("stagePills"); el.innerHTML="";
-  const labels={leve:"Início · 2–5",meio:"A subir · 2–8",alto:"Mais alto · 2–R"};
-  Object.keys(labels).forEach(s=>{
-    const b=document.createElement("button"); b.className="pill"+(currentStage===s?" active":""); b.textContent=labels[s];
-    b.onclick=()=>{currentStage=s;save();renderStages(); if(selectedSuit) renderValues();};
-    el.appendChild(b);
-  });
+function openCard(c){
+ currentCard=c;if(!seen.includes(key(c))){seen.push(key(c));save()}
+ const s=SUITS[c.suit],m=MODES[c.mode];document.getElementById("bigCard").textContent=c.value+" "+s.symbol;document.getElementById("suitName").innerHTML=`<strong>${s.name}</strong><br>${s.subtitle}`;document.getElementById("cardTitle").textContent=c.title;document.getElementById("cardText").textContent=c.text;document.getElementById("modeIcon").textContent=m.icon;document.getElementById("modeName").textContent=m.name;document.getElementById("modeDesc").textContent=m.desc;document.getElementById("toggleDone").textContent=done.has(key(c))?"Marcar como não feita":"Marcar como feita";show("cardScreen")
 }
-function renderSuits() {
-  const el=document.getElementById("suitButtons"); el.innerHTML="";
-  Object.entries(SUITS).forEach(([id,s])=>{
-    const b=document.createElement("button"); b.className="suitbtn";
-    b.innerHTML=`<span class="sym">${s.symbol}</span><strong>${s.name}</strong><small>${s.subtitle}</small>`;
-    b.onclick=()=>{selectedSuit=id; renderValues(); show("valueScreen");};
-    el.appendChild(b);
-  });
+function randomCard(){let pool=availableCards().filter(c=>!done.has(key(c)));if(!pool.length)pool=availableCards();openCard(pool[Math.floor(Math.random()*pool.length)])}
+function renderLegend(){
+ const order=["open","group","pair","carry","mist"];const el=document.getElementById("legend");el.innerHTML="";
+ order.forEach(k=>{const m=MODES[k],row=document.createElement("div");row.className="legendrow";row.innerHTML=`<div class="legendicon">${m.icon}</div><div><strong>${m.name}</strong><small>${m.desc}</small></div>`;el.appendChild(row)})
 }
-function renderValues() {
-  const s=SUITS[selectedSuit];
-  document.getElementById("selectedSuitTitle").innerHTML=`<h2 style="margin:.25rem 0">${s.symbol} ${s.name}</h2><div class="note">${s.subtitle}</div>`;
-  const el=document.getElementById("valueButtons"); el.innerHTML="";
-  STAGES[currentStage].forEach(v=>{
-    const c=CARDS.find(x=>x.suit===selectedSuit&&x.value===v);
-    if(!c) return;
-    const b=document.createElement("button"); b.textContent=v+(done.has(key(c))?" ✓":""); if(done.has(key(c))) b.classList.add("done");
-    b.onclick=()=>openCard(c);
-    el.appendChild(b);
-  });
+function renderHistory(onlyDone=false){
+ const el=document.getElementById("history");el.innerHTML="";
+ const items=[...seen].reverse().map(k=>CARDS.find(c=>key(c)===k)).filter(Boolean).filter(c=>!onlyDone||done.has(key(c)));
+ if(!items.length){el.innerHTML='<div class="note">Ainda não há cartas aqui.</div>';return}
+ items.forEach(c=>{const s=SUITS[c.suit],d=document.createElement("div");d.className="histitem";d.innerHTML=`<span><strong>${c.value} ${s.symbol}</strong> · ${c.title}</span><span>${done.has(key(c))?"✓":""}</span>`;d.onclick=()=>{selectedSuit=c.suit;openCard(c);switchTab("cards")};el.appendChild(d)})
 }
-function openCard(c) {
-  currentCard=c;
-  if(!seen.includes(key(c))) { seen.push(key(c)); save(); }
-  const s=SUITS[c.suit], m=MODES[c.mode];
-  document.getElementById("bigCard").textContent=c.value+" "+s.symbol;
-  document.getElementById("suitName").innerHTML=`<strong>${s.name}</strong><br>${s.subtitle}`;
-  document.getElementById("cardTitle").textContent=c.title;
-  document.getElementById("cardText").textContent=c.text;
-  document.getElementById("modeIcon").textContent=m.icon;
-  document.getElementById("modeName").textContent=m.name;
-  document.getElementById("modeDesc").textContent=m.desc;
-  document.getElementById("toggleDone").textContent=done.has(key(c))?"Marcar como não feita":"Marcar como feita";
-  show("cardScreen");
+function switchTab(tab){
+ document.getElementById("screenCards").classList.toggle("hidden",tab!=="cards");document.getElementById("screenLegend").classList.toggle("hidden",tab!=="legend");document.getElementById("screenHistory").classList.toggle("hidden",tab!=="history");
+ document.getElementById("tabCards").classList.toggle("active",tab==="cards");document.getElementById("tabLegend").classList.toggle("active",tab==="legend");document.getElementById("tabHistory").classList.toggle("active",tab==="history");if(tab==="history")renderHistory(false)
 }
-function randomCard() {
-  let pool=availableCards().filter(c=>!done.has(key(c)));
-  if(!pool.length) pool=availableCards();
-  openCard(pool[Math.floor(Math.random()*pool.length)]);
-}
-function renderLegend() {
-  const order=["open","group","pair","carry","mist"];
-  const el=document.getElementById("legend"); el.innerHTML="";
-  order.forEach(k=>{
-    const m=MODES[k], row=document.createElement("div"); row.className="legendrow";
-    row.innerHTML=`<div class="legendicon">${m.icon}</div><div><strong>${m.name}</strong><small>${m.desc}</small></div>`;
-    el.appendChild(row);
-  });
-}
-function renderHistory(onlyDone=false) {
-  const el=document.getElementById("history"); el.innerHTML="";
-  const items=[...seen].reverse().map(k=>CARDS.find(c=>key(c)===k)).filter(Boolean).filter(c=>!onlyDone||done.has(key(c)));
-  if(!items.length) { el.innerHTML='<div class="note">Ainda não há cartas aqui.</div>'; return; }
-  items.forEach(c=>{
-    const s=SUITS[c.suit], d=document.createElement("div"); d.className="histitem";
-    d.innerHTML=`<span><strong>${c.value} ${s.symbol}</strong> · ${c.title}</span><span>${done.has(key(c))?"✓":""}</span>`;
-    d.onclick=()=>{selectedSuit=c.suit; openCard(c); switchTab("cards");};
-    el.appendChild(d);
-  });
-}
-function switchTab(tab) {
-  document.getElementById("screenCards").classList.toggle("hidden",tab!=="cards");
-  document.getElementById("screenLegend").classList.toggle("hidden",tab!=="legend");
-  document.getElementById("screenHistory").classList.toggle("hidden",tab!=="history");
-  document.getElementById("tabCards").classList.toggle("active",tab==="cards");
-  document.getElementById("tabLegend").classList.toggle("active",tab==="legend");
-  document.getElementById("tabHistory").classList.toggle("active",tab==="history");
-  if(tab==="history") renderHistory(false);
-}
-document.getElementById("tabCards").onclick=()=>switchTab("cards");
-document.getElementById("tabLegend").onclick=()=>switchTab("legend");
-document.getElementById("tabHistory").onclick=()=>switchTab("history");
-document.getElementById("backHome").onclick=()=>show("home");
-document.getElementById("backValues").onclick=()=>{ if(selectedSuit) show("valueScreen"); else show("home"); };
-document.getElementById("randomBtn").onclick=randomCard;
-document.getElementById("nextRandom").onclick=randomCard;
-document.getElementById("toggleDone").onclick=()=>{
-  if(!currentCard) return; const k=key(currentCard);
-  done.has(k)?done.delete(k):done.add(k); save(); openCard(currentCard);
-};
+document.getElementById("tabCards").onclick=()=>switchTab("cards");document.getElementById("tabLegend").onclick=()=>switchTab("legend");document.getElementById("tabHistory").onclick=()=>switchTab("history");document.getElementById("backHome").onclick=()=>show("home");document.getElementById("backValues").onclick=()=>selectedSuit?show("valueScreen"):show("home");document.getElementById("randomBtn").onclick=randomCard;document.getElementById("nextRandom").onclick=randomCard;
+document.getElementById("toggleDone").onclick=()=>{if(!currentCard)return;const k=key(currentCard);done.has(k)?done.delete(k):done.add(k);save();openCard(currentCard)};
 document.getElementById("histAll").onclick=()=>{document.getElementById("histAll").classList.add("active");document.getElementById("histDone").classList.remove("active");renderHistory(false)};
 document.getElementById("histDone").onclick=()=>{document.getElementById("histDone").classList.add("active");document.getElementById("histAll").classList.remove("active");renderHistory(true)};
-document.getElementById("resetBtn").onclick=()=>{
-  if(confirm("Limpar todas as cartas encontradas e marcadas como feitas?")){done.clear();seen=[];save();renderHistory(false);}
-};
-renderStages(); renderSuits(); renderLegend();
-if("serviceWorker" in navigator && location.protocol.startsWith("http")) navigator.serviceWorker.register("./sw.js");
+document.getElementById("resetBtn").onclick=()=>{if(confirm("Limpar todas as cartas encontradas e marcadas como feitas?")){done.clear();seen=[];save();renderHistory(false)}};
+renderStages();renderSuits();renderLegend();
+if("serviceWorker" in navigator)navigator.serviceWorker.register("./sw.js");
 </script>
 </body>
 </html>
